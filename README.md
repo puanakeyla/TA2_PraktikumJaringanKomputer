@@ -26,7 +26,6 @@ Konfigurasi meliputi IP address, pengamanan login, aktivasi interface, dan pengu
 - Switch Cisco 2960  
 - 2 PC  
 - Kabel
-- Cisco Packet Tracer
 
 ## Tabel Alamat
 
