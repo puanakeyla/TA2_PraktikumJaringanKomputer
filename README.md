@@ -168,7 +168,9 @@ S1(config)# exit
 S1# copy running-config startup-config
 
 ### Deskripsi Singkat Konfigurasi Switch
-Konfigurasi ini dilakukan untuk menyiapkan switch S1 agar dapat digunakan sebagai perangkat penghubung jaringan dan dapat diakses melalui jaringan menggunakan IP manajemen. Pertama, nama switch diubah menjadi S1, dan fitur ip domain-lookup dinonaktifkan untuk mencegah proses pencarian DNS yang tidak diperlukan saat terjadi salah ketik perintah. Untuk pengelolaan switch melalui jaringan, VLAN 1 dikonfigurasi dengan alamat IP 192.168.1.2/24, kemudian interface VLAN tersebut diaktifkan menggunakan no shutdown. Agar switch dapat berkomunikasi dengan perangkat di luar subnet-nya, gateway default diatur ke alamat router R1 yaitu 192.168.1.1. Terakhir, konfigurasi disimpan ke memori startup menggunakan perintah copy running-config startup-config agar tetap tersimpan setelah perangkat restart.
+Konfigurasi ini dilakukan untuk menyiapkan switch S1 agar dapat digunakan sebagai perangkat penghubung jaringan dan dapat diakses melalui jaringan menggunakan IP manajemen. Pertama, nama switch diubah menjadi S1, dan fitur ip domain-lookup dinonaktifkan untuk mencegah proses pencarian DNS yang tidak diperlukan saat terjadi salah ketik perintah. Untuk pengelolaan switch melalui jaringan, VLAN 1 dikonfigurasi dengan alamat IP 192.168.1.2/24, kemudian interface VLAN tersebut diaktifkan menggunakan no shutdown. Agar switch dapat berkomunikasi dengan perangkat di luar subnet-nya, gateway default diatur ke alamat router R1 yaitu 192.168.1.1. 
+
+Terakhir, konfigurasi disimpan ke memori startup menggunakan perintah copy running-config startup-config agar tetap tersimpan setelah perangkat restart.
 
 ###  4. Konfigurasi PC
 PC-A: 
@@ -189,9 +191,7 @@ Gateway: 192.168.0.1
 
 ### Deskripsi Singkat Konfigurasi PC
 Pada PC-A dan PC-B dilakukan konfigurasi alamat IP agar kedua komputer dapat terhubung dalam jaringan melalui router.
-
 PC-A dikonfigurasi berada pada jaringan 192.168.1.0/24 dengan alamat 192.168.1.3, subnet mask 255.255.255.0, dan gateway 192.168.1.1 (alamat interface router R1 pada jaringan tersebut). Konfigurasi ini memungkinkan PC-A mengirim data ke perangkat lain di dalam jaringan maupun keluar subnet melalui router.
-
 PC-B berada pada jaringan berbeda, yaitu 192.168.0.0/24, menggunakan alamat 192.168.0.3, subnet mask 255.255.255.0, dan gateway 192.168.0.1 yang merupakan interface router R1 pada jaringan PC-B. Dengan pengaturan ini, PC-B dapat terhubung ke router dan berkomunikasi dengan jaringan lain melalui routing.
 
 ###  5. Pengujian Konektivitas
