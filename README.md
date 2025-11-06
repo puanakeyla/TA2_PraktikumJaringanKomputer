@@ -182,8 +182,14 @@ S1# show ip interface brief
 Sebelum koneksi berhasil:
 ![Ping Belum Berhasil](pingBelumBerhasil.png)
 
+Mengapa ping dari PC-A ke PC-B tidak berhasil?
+Ping tidak berhasil karena interface router (default gateway) pada setiap jaringan belum dikonfigurasi. Akibatnya, traffic Layer 3 (IP) tidak bisa dirutekan dari satu subnet ke subnet lainnya. Setiap PC berada di jaringan/subnet yang berbeda, sehingga untuk bisa saling berkomunikasi, mereka membutuhkan router yang sudah dikonfigurasi IP address pada masing-masing interface yang terhubung ke subnet tersebut.
+
 Setelah koneksi berhasil:
 ![Ping Sudah Berhasil](pingSudahBerhasil.png)
+
+Ping sudah berhasil!
+Ping berhasil karena router sudah berfungsi dengan baik dalam meneruskan data antar dua subnet. Selain itu, switch 2960 secara otomatis mengaktifkan port yang terhubung ke perangkat, jadi koneksi antar perangkat bisa langsung berjalan tanpa perlu konfigurasi tambahan, ping pertama setelah router tersambung awalnya request timed out yang dilanjutkan dengan reply ini disebabkan oleh waktu milidetik yang dibutuhkan untuk tersambung.
 
 ## Penjelasan Lebih Lanjut
 Penjelasan lebih lengkap mengenai isi dan konfigurasi jaringan dapat dilihat pada video berikut:  
