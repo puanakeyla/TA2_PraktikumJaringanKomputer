@@ -53,64 +53,104 @@ Konfigurasi meliputi IP address, pengamanan login, aktivasi interface, dan pengu
 
 ###  2. Konfigurasi Router
 Router> enable
+
 Router# config terminal
+
 Router(config)# hostname R1
+
 R1(config)# no ip domain-lookup
+
 R1(config)# enable secret class
+
 R1(config)# service password-encryption
+
 R1(config)# banner motd $ Authorized Users Only! $
 
 ! Console dan Telnet login
+
 R1(config)# line console 0
+
 R1(config-line)# password cisco
+
 R1(config-line)# login
+
 R1(config-line)# exit
 
 R1(config)# line vty 0 4
+
 R1(config-line)# password cisco
+
 R1(config-line)# login
+
 R1(config-line)# exit
 
 ! Interface G0/0/0 (ke PC-B)
+
 R1(config)# interface g0/0/0
+
 R1(config-if)# ip address 192.168.0.1 255.255.255.0
+
 R1(config-if)# ipv6 address 2001:db8:acad::1/64
+
 R1(config-if)# ipv6 address fe80::1 link-local
+
 R1(config-if)# description Connected to PC-B
+
 R1(config-if)# no shutdown
+
 R1(config-if)# exit
 
 ! Interface G0/0/1 (ke Switch)
+
 R1(config)# interface g0/0/1
+
 R1(config-if)# ip address 192.168.1.1 255.255.255.0
+
 R1(config-if)# ipv6 address 2001:db8:acad:1::1/64
+
 R1(config-if)# ipv6 address fe80::1 link-local
+
 R1(config-if)# description Connected to Switch S1
+
 R1(config-if)# no shutdown
+
 R1(config-if)# exit
 
 ! Aktifkan routing IPv6
+
 R1(config)# ipv6 unicast-routing
+
 R1(config)# exit
 
 ! Simpan konfigurasi & atur jam
+
 R1# copy running-config startup-config
+
 R1# clock set 15:30:00 27 Aug 2019
 
 ###  3. Konfigurasi Switch
 Switch> enable
+
 Switch# config terminal
+
 Switch(config)# hostname S1
+
 S1(config)# no ip domain-lookup
 
 ! IP VLAN untuk manajemen
+
 S1(config)# interface vlan 1
+
 S1(config-if)# ip address 192.168.1.2 255.255.255.0
+
 S1(config-if)# no shutdown
+
 S1(config-if)# exit
 
 ! Default gateway
+
 S1(config)# ip default-gateway 192.168.1.1
+
 S1(config)# exit
 
 ! Simpan konfigurasi
