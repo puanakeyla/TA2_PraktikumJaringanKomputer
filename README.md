@@ -25,7 +25,8 @@ Konfigurasi meliputi IP address, pengamanan login, aktivasi interface, dan pengu
 - Router Cisco 4321  
 - Switch Cisco 2960  
 - 2 PC  
-- Kabel 
+- Kabel
+- Cisco Packet Tracer
 
 ## Tabel Alamat
 
