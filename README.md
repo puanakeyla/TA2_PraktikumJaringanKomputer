@@ -133,15 +133,10 @@ Konfigurasi ini digunakan untuk menyiapkan router R1 agar dapat bekerja sebagai 
 
 Sebuah banner MOTD ditambahkan untuk menampilkan peringatan saat ada yang mengakses perangkat.
 Selanjutnya, dua interface utama dikonfigurasi:
-
 G0/0/0 terhubung ke PC-B dengan alamat IPv4 192.168.0.1/24 dan IPv6 2001:db8:acad::1/64.
-
 G0/0/1 terhubung ke switch S1 dengan IPv4 192.168.1.1/24 dan IPv6 2001:db8:acad:1::1/64.
 
-Masing-masing interface juga diberi alamat link-local IPv6 dan diaktifkan menggunakan perintah no shutdown.
-
-Agar IPv6 dapat dirutekan antar jaringan, fitur ipv6 unicast-routing diaktifkan.
-Terakhir, konfigurasi disimpan ke memori startup menggunakan copy running-config startup-config dan waktu sistem diatur menggunakan perintah clock set.
+Masing-masing interface juga diberi alamat link-local IPv6 dan diaktifkan menggunakan perintah no shutdown. Agar IPv6 dapat dirutekan antar jaringan, fitur ipv6 unicast-routing diaktifkan. Terakhir, konfigurasi disimpan ke memori startup menggunakan copy running-config startup-config dan waktu sistem diatur menggunakan perintah clock set.
 
 ###  3. Konfigurasi Switch
 Switch> enable
@@ -173,11 +168,7 @@ S1(config)# exit
 S1# copy running-config startup-config
 
 ### Deskripsi Singkat Konfigurasi Switch
-Konfigurasi ini dilakukan untuk menyiapkan switch S1 agar dapat digunakan sebagai perangkat penghubung jaringan dan dapat diakses melalui jaringan menggunakan IP manajemen. Pertama, nama switch diubah menjadi S1, dan fitur ip domain-lookup dinonaktifkan untuk mencegah proses pencarian DNS yang tidak diperlukan saat terjadi salah ketik perintah.
-
-Untuk memungkinkan pengelolaan switch melalui jaringan, VLAN 1 dikonfigurasi dengan alamat IP 192.168.1.2/24, kemudian interface VLAN tersebut diaktifkan menggunakan no shutdown. Agar switch dapat berkomunikasi dengan perangkat di luar subnet-nya, gateway default diatur ke alamat router R1 yaitu 192.168.1.1.
-
-Terakhir, konfigurasi disimpan ke memori startup menggunakan perintah copy running-config startup-config agar tetap tersimpan setelah perangkat restart.
+Konfigurasi ini dilakukan untuk menyiapkan switch S1 agar dapat digunakan sebagai perangkat penghubung jaringan dan dapat diakses melalui jaringan menggunakan IP manajemen. Pertama, nama switch diubah menjadi S1, dan fitur ip domain-lookup dinonaktifkan untuk mencegah proses pencarian DNS yang tidak diperlukan saat terjadi salah ketik perintah. Untuk pengelolaan switch melalui jaringan, VLAN 1 dikonfigurasi dengan alamat IP 192.168.1.2/24, kemudian interface VLAN tersebut diaktifkan menggunakan no shutdown. Agar switch dapat berkomunikasi dengan perangkat di luar subnet-nya, gateway default diatur ke alamat router R1 yaitu 192.168.1.1. Terakhir, konfigurasi disimpan ke memori startup menggunakan perintah copy running-config startup-config agar tetap tersimpan setelah perangkat restart.
 
 ###  4. Konfigurasi PC
 PC-A: 
